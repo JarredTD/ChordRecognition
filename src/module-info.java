@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Organ
+ *
+ */
+module ChordTrainer {
+}
