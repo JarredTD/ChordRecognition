@@ -7,14 +7,13 @@ import java.util.Set;
 import exceptions.ImproperAccidentalValue;
 import exceptions.ImproperNoteLetterException;
 
-
 public class Note {
 
-    private char noteLetter;
+	private char noteLetter;
 	private int accidental;
 
-    private static Set<Character> allowedLetters = new HashSet<Character>(
-	    Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G'));
+	private static Set<Character> allowedLetters = new HashSet<Character>(
+			Arrays.asList('A', 'B', 'C', 'D', 'E', 'F', 'G'));
 
 	/**
 	 * Neutral Note Constructor
@@ -22,15 +21,16 @@ public class Note {
 	 * @param letter
 	 * @throws ImproperNoteLetterException
 	 */
-    public Note(char letter) throws ImproperNoteLetterException {
+	public Note(char letter) throws ImproperNoteLetterException {
 		if (allowedLetters.contains(letter)) {
 			this.noteLetter = letter;
-			this.accidental = 0;;
+			this.accidental = 0;
+			;
 		} else {
 			throw new ImproperNoteLetterException(
 					String.format("%c is not a valid character for note notation.", letter));
 		}
-    }
+	}
 
 	/**
 	 * Accidental Note Constructor
@@ -42,12 +42,46 @@ public class Note {
 	 */
 	public Note(char letter, int accidental) throws ImproperNoteLetterException, ImproperAccidentalValue {
 		this(letter);
-		
+
 		if (accidental >= -1 && accidental <= 1) {
 			this.accidental = accidental;
 		} else {
-			throw new ImproperAccidentalValue(String.format("%i is not a valid value for the accidental. ", accidental));
+			throw new ImproperAccidentalValue(
+					String.format("%i is not a valid value for the accidental. ", accidental));
 		}
+	}
+
+	/**
+	 * @return the noteLetter
+	 */
+	public char getNoteLetter() {
+		return noteLetter;
+	}
+
+	/**
+	 * @return the accidental
+	 */
+	public int getAccidental() {
+		return accidental;
+	}
+
+	public int calcSemitoneDistance(Note n) {
+		int distance = 0;
+
+		char note1 = this.getNoteLetter();
+		char note2 = n.getNoteLetter();
+
+		while (note1 != note2) {
+			if (note1 == 'B' || note1 == 'E') {
+				distance++;
+			} else {
+				distance += 2;
+			}
+			note1++;
+		}
+
+		return distance;
+
 	}
 
 }
