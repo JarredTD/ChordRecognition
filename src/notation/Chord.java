@@ -53,20 +53,20 @@ public class Chord {
 //		}
 //	}
 
-	private String calcChordNotation() {
-		String chordNotation = "";
-
-		if (inversion == 0) {
-			chordNotation += this.getRoot().getNoteLetter();
-		}
-		if ((this.getRoot().calcSemitoneDistance(this.getChordNotes().get(1)) == 4)
-				&& this.getRoot().calcSemitoneDistance(this.getChordNotes().get(2)) == 7) {
-			return chordNotation;
-		}
-
-		return chordNotation;
-
-	}
+//	private String calcChordNotation() {
+//		String chordNotation = "";
+//
+//		if (inversion == 0) {
+//			chordNotation += this.getRoot().getNoteLetter();
+//		}
+//		if ((this.getRoot().calcSemitoneDistance(this.getChordNotes().get(1)) == 4)
+//				&& this.getRoot().calcSemitoneDistance(this.getChordNotes().get(2)) == 7) {
+//			return chordNotation;
+//		}
+//
+//		return chordNotation;
+//
+//	}
 
 	private String calcKeySignature() {
 
