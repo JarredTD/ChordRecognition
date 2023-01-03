@@ -64,24 +64,4 @@ public class Note {
 	public int getAccidental() {
 		return accidental;
 	}
-
-	public int calcSemitoneDistance(Note n) {
-		int distance = 0;
-
-		char note1 = this.getNoteLetter();
-		char note2 = n.getNoteLetter();
-
-		while (note1 != note2) {
-			if (note1 == 'B' || note1 == 'E') {
-				distance++;
-			} else {
-				distance += 2;
-			}
-			note1++;
-		}
-
-		return distance;
-
-	}
-
 }
