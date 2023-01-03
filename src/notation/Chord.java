@@ -35,24 +35,24 @@ public class Chord {
 		return this.getChordNotes().get(this.getChordNotes().size() - 1);
 	}
 
-	private int calcInversion() {
-		int distance = this.getRoot().calcSemitoneDistance(this.getLastNote());
-
-		switch (distance) {
-
-		case 7:
-			return 0;
-
-		case 8:
-			return 1;
-
-		case 9:
-			return 2;
-
-		default:
-			return 0;
-		}
-	}
+//	private int calcInversion() {
+//		int distance = this.getRoot().calcSemitoneDistance(this.getLastNote());
+//
+//		switch (distance) {
+//
+//		case 7:
+//			return 0;
+//
+//		case 8:
+//			return 1;
+//
+//		case 9:
+//			return 2;
+//
+//		default:
+//			return 0;
+//		}
+//	}
 
 	private String calcChordNotation() {
 		String chordNotation = "";
