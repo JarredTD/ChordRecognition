@@ -72,9 +72,4 @@ public class Chord {
 //	private String calcKeySignature() {
 //
 //	}
-
-//	private String calcChordNotation() {
-//		chordNotes = this.getChordNotes();
-//		
-//	}
 }
