@@ -8,7 +8,6 @@ public class Chord {
 	private List<Note> chordNotes;
 	private String keySignature;
 	private String chordNotation;
-	private int inversion;
 
 	public Chord(List<Note> notes) {
 		this.chordNotes = new ArrayList<Note>(notes);
@@ -67,9 +66,5 @@ public class Chord {
 //		return chordNotation;
 //
 //	}
-
-	private String calcKeySignature() {
-
-	}
 
 }
