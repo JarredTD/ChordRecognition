@@ -42,9 +42,25 @@ public class CircleOfFifths {
 
 	}
 	
+	private static String calcAccidental(int accidental) {
+		switch (accidental) {
+		case -1:
+			return "b";
+		case 0:
+			return "";
+		case 1:
+			return "#";
+		default:
+			return "";
+		}
+	}
+
 	public static List<String> calcKey(Note n) {
 		char letter = n.getNoteLetter();
-		String noteLetter = (n.getAccidental() == -1 ) ? letter+"b" : letter+"";
+		String accidental = calcAccidental(n.getAccidental());
+		
+		String noteLetter = n.getNoteLetter() + accidental;
+
 		boolean isFlat = (n.getAccidental() == -1 || letter == 'F') ? true : false;
 		final List<String> keySignature = new ArrayList<String>();
 		
@@ -61,7 +77,7 @@ public class CircleOfFifths {
 		} else {
 			for (int i = 11; i >= index; i--) {
 				if (i == 6) {
-					keySignature.add(fifths.get(0));
+					keySignature.add(fifths.get(0) + 'b');
 					continue;
 				}
 				keySignature.add(fifths.get(i - 1));
